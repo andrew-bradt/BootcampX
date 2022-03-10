@@ -15,6 +15,6 @@ WHERE cohorts.name = $1
 LIMIT $2;
 `, [process.argv[2], process.argv[3]])
   .then(res=>{
-    res.rows.forEach(user => console.log(`${user.name} has an id of ${user.id} and was in the ${user.cohort} cohort`));
+    res.rows.forEach(row => console.log(`${row.name} has an id of ${row.id} and was in the ${row.cohort} cohort`));
   })
   .catch(err=>console.error('query error', err.stack));
